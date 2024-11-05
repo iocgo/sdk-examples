@@ -11,6 +11,7 @@ func init() {
 	gen.Alias[annotation.PutMapping]()
 	gen.Alias[annotation.DelMapping]()
 	gen.Alias[annotation.PostMapping]()
+	gen.Alias[annotation.Bean]()
 }
 
 func main() {

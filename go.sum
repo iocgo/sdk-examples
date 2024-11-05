@@ -1,5 +1,5 @@
-github.com/bincooo/go-annotation v0.0.0-20241102044750-a3e4e67aa541 h1:wfCPtNtAuUfO1PK0ONsVoZ5r34cUsnVC4SVWTyVFPcI=
-github.com/bincooo/go-annotation v0.0.0-20241102044750-a3e4e67aa541/go.mod h1:3ZV3/eOQJ/28O5jINzNi98+K+8WY/pOvDYidT7WWaFs=
+github.com/bincooo/go-annotation v0.0.0-20241105085533-aa255937dc5c h1:YlayiS7lOn8CLo0s8SERDHJ/UERQud5fci+AJOHf0S4=
+github.com/bincooo/go-annotation v0.0.0-20241105085533-aa255937dc5c/go.mod h1:3ZV3/eOQJ/28O5jINzNi98+K+8WY/pOvDYidT7WWaFs=
 github.com/bytedance/sonic v1.11.6 h1:oUp34TzMlL+OY1OUWxHqsdkgC/Zfc85zGqw9siXjrc0=
 github.com/bytedance/sonic v1.11.6/go.mod h1:LysEHSvpvDySVdC2f87zGWf6CIKJcAvqab1ZaiQtds4=
 github.com/bytedance/sonic/loader v0.1.1 h1:c+e5Pt1k/cy5wMveRDyk2X4B9hF4g7an8N3zCYjJFNM=
@@ -34,8 +34,8 @@ github.com/hashicorp/errwrap v1.0.0 h1:hLrqtEDnRye3+sgx6z4qVLNuviH3MR5aQ0ykNJa/U
 github.com/hashicorp/errwrap v1.0.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brvKWEqk/Jc4=
 github.com/hashicorp/go-multierror v1.1.1 h1:H5DkEtf6CXdFp0N0Em5UCwQpXMWke8IA0+lD48awMYo=
 github.com/hashicorp/go-multierror v1.1.1/go.mod h1:iw975J/qwKPdAO1clOe2L8331t/9/fmwbPZ6JB6eMoM=
-github.com/iocgo/sdk v0.0.0-20241105035459-45b2f29587da h1:E9vkDM9+bD2LdxGXHn+4TuGGsekOBYKslu/jr/gs2p0=
-github.com/iocgo/sdk v0.0.0-20241105035459-45b2f29587da/go.mod h1:WUa58Aiwe5bS6RjgkEoHo24Bd6vD82VhC75cUG4EI2Y=
+github.com/iocgo/sdk v0.0.0-20241105090717-9dbd125da866 h1:mz/LT4FDJ3IeYMH1FisjyC27SO0r/JYeBwXulNhTsYo=
+github.com/iocgo/sdk v0.0.0-20241105090717-9dbd125da866/go.mod h1:0ijkiUFOKXKwHO5MfuiJZWVZNB6IwOYJkeeRnK4o22w=
 github.com/json-iterator/go v1.1.12 h1:PV8peI4a0ysnczrg+LtxykD8LfKY9ML6u2jnxaEnrnM=
 github.com/json-iterator/go v1.1.12/go.mod h1:e30LSqwooZae/UwlEbR2852Gd8hjQvJoHmT4TnhNGBo=
 github.com/klauspost/cpuid/v2 v2.0.9/go.mod h1:FInQzS24/EEf25PyTYn52gqo7WaD8xa0213Md/qVLRg=

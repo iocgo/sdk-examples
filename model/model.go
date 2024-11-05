@@ -2,10 +2,10 @@ package model
 
 import (
 	"fmt"
+	"github.com/iocgo/sdk"
 
 	// ------>>> 代理接口中未被使用的包需要导入 <<<-----
 	_ "bincooo/sdk-examples/px"
-	_ "github.com/iocgo/sdk"
 	_ "github.com/iocgo/sdk/proxy"
 )
 
@@ -17,13 +17,22 @@ type B struct {
 	*A
 }
 
-// @Inject(name="model.A", proxy="bincooo/sdk-examples/px.Echo")
-func NewA() *A {
+// @Inject(
+//
+//	name="model.A",
+//	proxy="bincooo/sdk-examples/px.Echo",
+//	config="{ \"data\": \"hello golang ~\" }"
+//
+// )
+func NewA(data sdk.AnnotationBytes) *A {
+	// config 一般用来拓展下级注解中携带拓展参数
+	println("sdk.AnnotationBytes: ", string(data))
 	return &A{}
 }
 
-// @Inject(alias="model.B", qualifier="[0]:model.A")
-func NewB(a *A) *B {
+// @Bean(alias="model.B", qualifier="[0]:model.A")
+func NewB(a *A, data sdk.AnnotationBytes) *B {
+	println("sdk.AnnotationBytes: ", string(data))
 	return &B{a}
 }
 
