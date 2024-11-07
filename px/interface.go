@@ -4,6 +4,8 @@ import (
 	"errors"
 	"fmt"
 	"github.com/iocgo/sdk/proxy"
+	"reflect"
+	"strings"
 	// ------>>> 代理接口中未被使用的包需要导入 <<<-----
 )
 
@@ -11,9 +13,33 @@ type Echo interface {
 	Echo(name string) error
 }
 
+func ValueType(t any) string {
+	ox := reflect.ValueOf(t)
+	if ox.Kind() == reflect.Ptr {
+		ox = ox.Elem()
+	}
+
+	value := fmt.Sprintf("%T", t)
+	// 通过静态生成的代理
+	if value[0] == '*' && strings.HasSuffix(value, "_px__") {
+		field := ox.FieldByName("proto")
+		value = field.Type().String()
+	}
+
+	if !strings.Contains(value, "/") {
+		if value[0] == '*' {
+			return "*bincooo/sdk-examples/" + value[1:]
+		}
+		return "bincooo/sdk-examples/" + value
+	}
+
+	return value
+}
+
 // @Proxy(target="px.Echo")
 func EchoInvocationHandler(ctx *proxy.Context[Echo]) {
 	fmt.Println("开始代理...")
+	fmt.Println("原型: ", ValueType(ctx.Receiver))
 
 	name := ctx.In[0].(string)
 	fmt.Println("入参: ", name)
