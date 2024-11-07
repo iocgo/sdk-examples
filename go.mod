@@ -4,7 +4,7 @@ go 1.23.2
 
 require (
 	github.com/gin-gonic/gin v1.10.0
-	github.com/iocgo/sdk v0.0.0-20241107094222-800f87e166cc
+	github.com/iocgo/sdk v0.0.0-20241107103520-9b889159ff76
 )
 
 //github.com/iocgo/sdk v0.0.0-20241107094222-800f87e166cc => ../sdk

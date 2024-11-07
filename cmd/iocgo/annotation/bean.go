@@ -9,7 +9,6 @@ type Bean struct {
 	N          string `annotation:"name=name,default="`
 	Alias      string `annotation:"name=alias,default="`
 	Initialize string `annotation:"name=init,default="`
-	Px         string `annotation:"name=proxy,default="`
 	Qualifier  string `annotation:"name=qualifier,default="`
 }
 
@@ -21,7 +20,6 @@ func (g Bean) As() annotation.M {
 		N:          g.N,
 		Alias:      g.Alias,
 		Initialize: g.Initialize,
-		Px:         g.Px,
 		Qualifier:  g.Qualifier,
 		Config:     "yes, i'm golang ~",
 	}

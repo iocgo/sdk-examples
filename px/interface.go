@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/iocgo/sdk/proxy"
+	"path"
 	"reflect"
 	"strings"
 	// ------>>> 代理接口中未被使用的包需要导入 <<<-----
@@ -36,10 +37,39 @@ func ValueType(t any) string {
 	return value
 }
 
+func packageMatched(regex, packageName string) bool {
+	if len(regex) == 0 {
+		panic(errors.New("regex is empty"))
+	}
+
+	if regex[0] == '&' {
+		regex = regex[1:]
+		if packageName[0] != '*' {
+			return false
+		}
+		packageName = packageName[1:]
+	}
+
+	matched, err := path.Match(regex, packageName)
+	if err != nil {
+		panic(err)
+	}
+
+	return matched
+}
+
 // @Proxy(target="px.Echo")
 func EchoInvocationHandler(ctx *proxy.Context[Echo]) {
 	fmt.Println("开始代理...")
-	fmt.Println("原型: ", ValueType(ctx.Receiver))
+
+	vtype := ValueType(ctx.Receiver)
+	fmt.Println("原型: ", vtype)
+
+	// 包过滤
+	if !packageMatched("&bin*/*/model.A", vtype) {
+		ctx.Do()
+		return
+	}
 
 	name := ctx.In[0].(string)
 	fmt.Println("入参: ", name)
@@ -70,7 +100,6 @@ func EchoInvocationHandler(ctx *proxy.Context[Echo]) {
 	// }
 
 	var err error
-
 	// 指针类型
 	if o := ctx.Out[0]; o != nil {
 		err = o.(error)
