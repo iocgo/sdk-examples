@@ -2,10 +2,10 @@ package model
 
 import (
 	"fmt"
-	"github.com/iocgo/sdk"
 
 	// ------>>> 代理接口中未被使用的包需要导入 <<<-----
 	_ "bincooo/sdk-examples/px"
+	_ "github.com/iocgo/sdk"
 	_ "github.com/iocgo/sdk/proxy"
 )
 
@@ -24,15 +24,15 @@ type B struct {
 //	config="{ \"data\": \"hello golang ~\" }"
 //
 // )
-func NewA(data sdk.AnnotationBytes) *A {
+func NewA(config string) *A {
 	// config 一般用来拓展下级注解中携带拓展参数
-	println("sdk.AnnotationBytes: ", string(data))
+	println("config: ", config)
 	return &A{}
 }
 
 // @Bean(alias="model.B", qualifier="[0]:model.A")
-func NewB(a *A, data sdk.AnnotationBytes) *B {
-	println("sdk.AnnotationBytes: ", string(data))
+func NewB(a *A, config string) *B {
+	println("config: ", config)
 	return &B{a}
 }
 

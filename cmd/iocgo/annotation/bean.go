@@ -21,6 +21,7 @@ func (g Bean) As() annotation.M {
 		Alias:      g.Alias,
 		Initialize: g.Initialize,
 		Qualifier:  g.Qualifier,
+		Singleton:  false,
 		Config:     "yes, i'm golang ~",
 	}
 }

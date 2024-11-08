@@ -7,11 +7,17 @@ import (
 )
 
 func init() {
+	// gin
 	gen.Alias[annotation.GetMapping]()
 	gen.Alias[annotation.PutMapping]()
 	gen.Alias[annotation.DelMapping]()
 	gen.Alias[annotation.PostMapping]()
+
+	// ioc
 	gen.Alias[annotation.Bean]()
+
+	// cobra
+	gen.Alias[annotation.Cobra]()
 }
 
 func main() {
